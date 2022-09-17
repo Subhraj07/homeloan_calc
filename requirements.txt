@@ -1,0 +1,7 @@
+pandas==1.4.4
+streamlit==1.12.2
+streamlit-aggrid==0.3.3
+extra-streamlit-components==0.1.55
+numpy-financial==1.0.0
+pyxlsb==1.0.9
+XlsxWriter==3.0.3

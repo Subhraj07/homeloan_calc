@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, shrink-to-fit=no"
+    />
+    <title>Home Loan Calculator</title>
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/@stlite/mountable@0.6.0/build/stlite.css"
+    />
+    <style>
+      footer {        
+        visibility: hidden;
+      }
+      footer:after {
+        content:'Based on github.com/FredHutch/stlite-template'; 
+        visibility: visible;
+        display: block;
+        position: relative;
+        padding: 5px;
+        top: 2px;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="root"></div>
+    <script src="https://cdn.jsdelivr.net/npm/@stlite/mountable@0.6.0/build/stlite.js"></script>
+    <script>
+        fetch("app.py")
+            .then((response) => response.text())
+            .then(
+                (app) => stlite.mount(
+                    {
+                        requirements: [
+                          "pandas==1.4.4", 
+                          "streamlit==1.12.2", 
+                          "streamlit-aggrid==0.3.3",
+                          "extra-streamlit-components==0.1.55",
+                          "numpy-financial==1.0.0",
+                          "pyxlsb==1.0.9",
+                          "XlsxWriter==3.0.3"
+                        ],
+                        entrypoint: "app.py",
+                        files: {
+                            "app.py": app
+                        }
+                    },
+                    document.getElementById("root")
+                )
+            );
+    </script>
+  </body>
+</html>
